@@ -1,10 +1,24 @@
-import { View, Text, TouchableOpacity } from 'react-native'
-import React from 'react'
+import { View, Text, TouchableOpacity, ScrollView } from 'react-native'
+import React, { useState } from 'react'
 import { defaultStyle, colors } from '../styles/styles'
 import Header from '../components/Header'
-import { Avatar } from 'react-native-paper'
+import { Avatar, Button } from 'react-native-paper'
 
 export default function HomeScreen() {
+
+const categories = [ { category:"Nice", _id:'01' },
+{ category:"Football", _id:'02' },
+{ category:"Men", _id:'03' },
+{ category:"Women", _id:'04' },
+{ category:"Helicopter", _id:'05' },
+{ category:"Dummy", _id:'06' },
+{ category:"Dummy2", _id:'07' } ];
+
+const [category, setCategory] = useState("");
+
+const categoryButtonHandler = (id) => {
+    setCategory(id);
+}
   return (
     <View style={defaultStyle}>
         <Header/>
@@ -27,7 +41,38 @@ export default function HomeScreen() {
             </TouchableOpacity>
          </View>
         </View>
-
+        {/* Categories */}
+        <View 
+        style={{
+            flexDirection:"row",
+            height:80,
+            
+        }}>
+            <ScrollView horizontal 
+            showsHorizontalScrollIndicator={false}
+            contentContainerStyle={{
+                alignItems:"center",
+            }}>
+            {
+                categories.map((item, index ) => (
+                    <Button 
+                    key={item._id}
+                    style={{
+                        backgroundColor: category === item._id? colors.color1 : colors.color5,
+                        borderRadius : 100,
+                        margin : 5,
+                    }}
+                    onPress={() => categoryButtonHandler(item._id)}>
+                        <Text style={{
+                            fontSize:12,
+                            color: category === item._id? colors.color2 :'gray'
+                        }}>{item.category}</Text>
+                    </Button>
+                ))
+            }
+            </ScrollView>
+        </View>
+        {/* Products */}
+        
     </View>
-  )
-}
+  ) }
