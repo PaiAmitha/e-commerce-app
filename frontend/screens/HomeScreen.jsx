@@ -6,6 +6,7 @@ import { Avatar, Button } from 'react-native-paper';
 import SearchModal from '../components/SearchModal';
 import ProductCard from '../components/ProductCard';
 import { useNavigation } from '@react-navigation/native';
+import Footer from '../components/Footer';
 
 const categories = [
     { category: "Nice", _id: '01' },
@@ -153,6 +154,7 @@ export default function HomeScreen() {
                     )}
                 />
             </View>
+        <Footer activeRoute={'Home'}/>
         </>
     )
 }

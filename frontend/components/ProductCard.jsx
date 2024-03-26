@@ -20,25 +20,25 @@ export default function ProductCard({
     <TouchableOpacity 
         activeOpacity={1}
         onPress={() => navigate.navigate('ProductDetails', { id })}>
-      <View style={[styles.cardContainer, { backgroundColor: i % 2 === 0 ? colors.color1 : colors.color2 }]}>
+      <View style={[styles.cardContainer, { backgroundColor: colors.color1 }]}>
         <Image
           source={{ uri: image }}
           style={styles.image}
         />
         <View style={styles.detailsContainer}>
-          <Text numberOfLines={2} style={[styles.name, { color: i % 2 === 0 ? colors.color2 : colors.color3 }]}>
+          <Text numberOfLines={2} style={[styles.name, { color: colors.color2  }]}>
             {name}
           </Text>
-          <Text style={[styles.price, { color: i % 2 === 0 ? colors.color2 : colors.color3 }]}>
+          <Text style={[styles.price, { color: colors.color2 }]}>
             ₹{price}
           </Text>
         </View>
-        <TouchableOpacity style={[{backgroundColor:i % 2 === 0 ? colors.color2 : colors.color3}, styles.addToCartButton]} onPress={() => addToCartHandler(id, stock)}>
+        <TouchableOpacity style={[{backgroundColor:colors.color2 }, styles.addToCartButton]} onPress={() => addToCartHandler(id, stock)}>
         <Button 
-            style={{backgroundColor: i % 2 === 0 ? colors.color2 : colors.color3}} 
+            style={{backgroundColor: colors.color2 }} 
             mode="contained" 
             onPress={() => addToCartHandler(id, stock)} 
-            textColor={i % 2 === 0 ? colors.color2 : colors.color3}>
+            textColor={colors.color1}>
             Add to Cart
         </Button>
         </TouchableOpacity>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
   },
   image: {
     width: "100%",
-    height: 180, // Adjusted height
+    height: "100%", // Adjusted height
     resizeMode: 'contain',
     position: 'absolute',
     left: 0,
