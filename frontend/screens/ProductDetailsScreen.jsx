@@ -4,6 +4,8 @@ import { defaultStyle, colors } from '../styles/styles';
 import Header from '../components/Header';
 import Carousel from 'react-native-snap-carousel';
 import { Avatar } from 'react-native-paper';
+import { Button } from 'react-native-paper';
+import Toast from 'react-native-toast-message';
 
 
 const SLIDER_WIDTH = Dimensions.get('window').width;
@@ -14,7 +16,7 @@ export default function ProductDetailsScreen({route : {params}}) {
 
   const name = "Gojo T-Shirt";
   const price = "1000";
-  const stock = 200;
+  const stock = 10;
   const description = `
 - Material: High-quality, 100% cotton for a soft feel.
 - Size Options: Available in sizes from Small to XXL.
@@ -51,6 +53,18 @@ export default function ProductDetailsScreen({route : {params}}) {
     setQuantity((prev) => prev - 1);
   }
 
+  const addToCartHandler = () => {
+    if(stock===0) return Toast.show({
+      type :"error",
+      text1:"Oops! Out of stock for now.",
+      text2:"But don't worry, we're working on restocking!"
+    }) ;
+    Toast.show({
+      type:"success",
+      text1:"Added to Cart!",
+    })
+  }
+  
   return (
     <View style={{
       ...defaultStyle,
@@ -74,13 +88,27 @@ export default function ProductDetailsScreen({route : {params}}) {
         padding: 40,
         borderTopLeftRadius: 45,
         borderTopRightRadius: 45,
+        
       }}>
       <Text
         numberOfLines={2}
         style={{
           fontSize: 25,
         }}>{name}</Text>
-
+        { stock === 0 && 
+        <View style={{
+            position: 'absolute',
+            top: 25,
+            right: 5,
+            transform: [{ rotate: '35deg' }],
+            backgroundColor: 'red',
+            paddingHorizontal: 10,
+            paddingVertical: 5,
+            height:27,
+            borderRadius:10,
+        }}>
+    <Text style={{ color: 'white', fontWeight: 'bold', fontSize: 12 }}>Out of Stock</Text> 
+  </View> }
       <Text
         style={{
           fontSize: 18,
@@ -117,25 +145,21 @@ export default function ProductDetailsScreen({route : {params}}) {
             }}>
               <TouchableOpacity onPress={decrementQty}>
                 <Avatar.Icon icon={"minus"} size={20}
-                  style={styles.qty}/>
+                  style={styles.qtyicon}/>
               </TouchableOpacity>
-              <Text style={{
-                backgroundColor:colors.color4,
-                height:25,
-                width:25,
-                textAlignVertical:'center',
-                textAlign:'center',
-                borderWidth:1,
-                borderRadius:5,
-                borderColor:colors.color5,
-              }}>{quantity}</Text>
+              <Text style={styles.qty}>{quantity}</Text>
 
               <TouchableOpacity onPress={incrementQty}>
                 <Avatar.Icon icon={"plus"} size={20}
-                  style={styles.qty}/>
+                  style={styles.qtyicon}/>
               </TouchableOpacity>
             </View>
           </View>
+
+          <TouchableOpacity activeOpacity={0.8} onPress={addToCartHandler}>
+            <Button icon={"cart"} style={styles.btn} textColor={colors.color2}>Add to Cart</Button>
+          </TouchableOpacity>
+
     </ScrollView>
 
     </View>
@@ -162,10 +186,26 @@ const styles = StyleSheet.create({
     height:250,
     //marginTop:80,
   },
-  qty:{
+  qtyicon:{
     borderRadius:5,
     backgroundColor:colors.color5,
     height:25,
     width:25,
-  }
+  },
+  qty:{
+    backgroundColor:colors.color4,
+    height:25,
+    width:25,
+    textAlignVertical:'center',
+    textAlign:'center',
+    borderWidth:1,
+    borderRadius:5,
+    borderColor:colors.color5,
+  },
+  btn :{
+    backgroundColor: colors.color3,
+    borderRadius:100,
+    padding: 5,
+    marginVertical: 35,
+  },
 })

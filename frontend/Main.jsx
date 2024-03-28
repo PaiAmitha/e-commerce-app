@@ -5,6 +5,7 @@ import { NavigationAction, NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import HomeScreen from './screens/HomeScreen'
 import ProductDetailsScreen from './screens/ProductDetailsScreen'
+import Toast from 'react-native-toast-message'
 
 const Stack = createNativeStackNavigator();
 
@@ -21,6 +22,7 @@ const Main = () => {
                 <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
             </Stack.Group>
         </Stack.Navigator>
+        <Toast position='bottom' bottomOffset={50}/>
     </NavigationContainer>
   )
 }
