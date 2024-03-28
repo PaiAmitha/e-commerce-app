@@ -12,13 +12,14 @@ export default function Header({back, emptyCart = false}) {
     const emptyCartHandler = () => {
         console.log("Empty Cart");
     }
+    //console.log("Route Name:", route.name);
   return (
     <>
       { back && (
         <TouchableOpacity
         style={{
           position:"absolute",
-          left:20,
+          left:-2,
           top:40,
           zIndex:10,
         }}
@@ -27,14 +28,15 @@ export default function Header({back, emptyCart = false}) {
           <Avatar.Icon style={{
               backgroundColor: colors.color4,
           }}
-          icon={'arrow-left'} color={ route.name==='productdetails'? colors.color2 : colors.color3}/>
+          size={50}
+          icon={'arrow-left'} color={ route.name==='ProductDetails'? colors.color2 : 'black'}/>
         </TouchableOpacity>
       )}
 
 <TouchableOpacity
         style={{
           position:"absolute",
-          right:20,
+          right:15,
           top:40,
           zIndex:10,
         }}
@@ -44,7 +46,7 @@ export default function Header({back, emptyCart = false}) {
               backgroundColor: colors.color4,
               marginTop:10,
           }}
-          icon={ emptyCart? "delete-outline" : 'cart-outline'} color={ route.name==='productdetails'? colors.color2 : colors.color3} size={50}/>
+          icon={ emptyCart? "delete-outline" : 'cart-outline'} color={ route.name==='ProductDetails'? colors.color2 : 'black'} size={50}/>
         </TouchableOpacity>
     </>
   )

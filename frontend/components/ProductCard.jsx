@@ -21,7 +21,7 @@ export default function ProductCard({
         activeOpacity={1}
         onPress={() => navigate.navigate('ProductDetails', { id })}>
       <View style={[styles.cardContainer, { backgroundColor: colors.color1 }]}>
-        <Image
+      <Image
           source={{ uri: image }}
           style={styles.image}
         />
@@ -32,6 +32,7 @@ export default function ProductCard({
           <Text style={[styles.price, { color: colors.color2 }]}>
             ₹{price}
           </Text>
+          
         </View>
         <TouchableOpacity style={[{backgroundColor:colors.color2 }, styles.addToCartButton]} onPress={() => addToCartHandler(id, stock)}>
         <Button 
@@ -50,12 +51,12 @@ export default function ProductCard({
 const styles = StyleSheet.create({
   cardContainer: {
     elevation: 5,
-    width: windowWidth / 2 - 55, // Adjusted width
+    width: windowWidth / 2 - 15, // Adjusted width
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginHorizontal: 10, // Adjusted margin
-    marginBottom: 20, // Adjusted margin
-    borderRadius: 20,
+    marginHorizontal: 5, // Adjusted margin
+    marginBottom: 5, // Adjusted margin
+    borderRadius: 10,
     height: 280, // Adjusted height
   },
   image: {
@@ -86,8 +87,8 @@ const styles = StyleSheet.create({
   },
   addToCartButton: {
     width: "100%",
-    borderBottomLeftRadius: 20,
-    borderBottomRightRadius: 20,
+    borderBottomLeftRadius: 10,
+    borderBottomRightRadius: 10,
     alignItems: 'center',
     justifyContent: 'center',
     height: 50,
