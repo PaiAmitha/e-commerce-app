@@ -54,7 +54,7 @@ const styles = StyleSheet.create({
     width: windowWidth / 2 - 15, // Adjusted width
     alignItems: 'center',
     justifyContent: 'space-between',
-    marginHorizontal: 5, // Adjusted margin
+    marginHorizontal: 8, // Adjusted margin
     marginBottom: 5, // Adjusted margin
     borderRadius: 10,
     height: 280, // Adjusted height

@@ -7,6 +7,7 @@ import SearchModal from '../components/SearchModal';
 import ProductCard from '../components/ProductCard';
 import { useNavigation } from '@react-navigation/native';
 import Footer from '../components/Footer';
+import Heading from '../components/Heading';
 
 const WIDTH = Dimensions.get('window').width;
 const categories = [
@@ -114,13 +115,13 @@ export default function HomeScreen() {
                     paddingTop: 50,
                     flexDirection: "row",
                     justifyContent: "space-between",
+
                 }}>
                     {/*Heading*/}
                     <View>
                         <Text style={{ fontSize: 20, marginTop: 10 }}>Our</Text>
                         <Text style={{ fontSize: 22, fontWeight: "900", color: colors.color1 }}>Products</Text>
                     </View>
-
                     {/*Search Bar*/}
                     <View>
                         <TouchableOpacity onPress={() => setActiveSearch((prev) => !prev)}>

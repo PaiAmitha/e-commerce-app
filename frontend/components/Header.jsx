@@ -40,7 +40,7 @@ export default function Header({back, emptyCart = false}) {
           top:40,
           zIndex:10,
         }}
-          onPress={emptyCart ? emptyCartHandler : () => navigation.navigate("cart") }
+          onPress={emptyCart ? emptyCartHandler : () => navigation.navigate("Cart") }
         >
           <Avatar.Icon style={{
               backgroundColor: colors.color4,
