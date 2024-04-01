@@ -5,8 +5,10 @@ import Header from '../components/Header'
 import Heading from '../components/Heading'
 import { Button } from 'react-native-paper'
 import CartItem from '../components/CartItem'
+import { useNavigation } from '@react-navigation/native'
 
-const cartItems = [{
+
+export const cartItems = [{
   name:"Gojo T-Shirt",
   image:"https://th.bing.com/th/id/OIP.CXUrNZzKJrN1C4yYe95keQHaHa?w=171&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
   product:"a",
@@ -22,18 +24,51 @@ const cartItems = [{
   price:4000,
   quantity:2,
 },
+{
+  name:"Gojo T-Shirt",
+  image:"https://th.bing.com/th/id/OIP.CXUrNZzKJrN1C4yYe95keQHaHa?w=171&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  product:"c",
+  stock:10,
+  price:2000,
+  quantity:2,
+},
+{
+  name:"HeadPhones",
+  image:"https://th.bing.com/th/id/OIP.3Lwp2zMqdI-R7LbkXaXxrwHaHa?w=188&h=188&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  product:"d",
+  stock:10,
+  price:4000,
+  quantity:2,
+},
+{
+  name:"Gojo T-Shirt",
+  image:"https://th.bing.com/th/id/OIP.CXUrNZzKJrN1C4yYe95keQHaHa?w=171&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  product:"e",
+  stock:10,
+  price:2000,
+  quantity:2,
+},
+{
+  name:"HeadPhones",
+  image:"https://th.bing.com/th/id/OIP.3Lwp2zMqdI-R7LbkXaXxrwHaHa?w=188&h=188&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  product:"f",
+  stock:10,
+  price:4000,
+  quantity:2,
+},
 ]
 
 export default function CartScreen() {
 
-  const incrementHandler = () => {
-
+  const incrementHandler = (id, qty, stock) => {
+    console.log("Increasing", id, qty, stock);
   }
 
-  const decrementHandler = () => {
+  const decrementHandler = (id, qty) => {
+    console.log("Decreasing", id, qty);
+  };
 
-  }
-
+  const navigation = useNavigation();
 
   return (
     <View style={{
@@ -51,7 +86,7 @@ export default function CartScreen() {
           flex:1,
         }}>
 
-          <ScrollView>
+          <ScrollView showsVerticalScrollIndicator={false}>
             {
               cartItems.map((i, index) => (
                 <CartItem 
@@ -81,7 +116,7 @@ export default function CartScreen() {
             <Text>₹500</Text>
           </View>
 
-          <TouchableOpacity>
+          <TouchableOpacity onPress={cartItems.length > 0? () => navigation.navigate("ConfirmOrder") : null}>
             <Button
               style={{
                 backgroundColor: colors.color3,

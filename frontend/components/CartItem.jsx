@@ -23,13 +23,7 @@ export default function CartItem({
                     source = {{
                         uri:imgSrc,
                     }}
-                    style={{
-                        width:200,
-                        height:"100%",
-                        resizeMode:'contain',
-                        top:"-20%",
-                        left:"10%",
-                    }}/>
+                    style={styles.imgstyle}/>
             </View>
             <View style={{
                 width:"40%",
@@ -49,30 +43,15 @@ export default function CartItem({
                         ₹{price}
                 </Text>
             </View>
-            <View style={{
-                alignItems:'center',
-                width:"20%",
-                height:80,
-                justifyContent:"space-between",
-                alignSelf:'center',
-            }}>
+            <View style={styles.qtycontainer}>
                 <TouchableOpacity onPress={() => decrementHandler(id, qty)}>
                     <Avatar.Icon 
                         icon={'minus'}
                         size={20}
                         style={styles.qtyicon} />
                 </TouchableOpacity>
-                <Text style={{
-                        backgroundColor: colors.color4,
-                        height:25,
-                        width:25,
-                        textAlignVertical:'center',
-                        textAlign:'center',
-                        borderWidth:1,
-                        borderRadius:5,
-                        borderColor:colors.color5,
-                    }}>{qty}</Text>
-                <TouchableOpacity>
+                <Text style={styles.qtyText}>{qty}</Text>
+                <TouchableOpacity onPress={() => incrementHandler(id, qty, stock)}>
                     <Avatar.Icon 
                         icon={'plus'}
                         size={20}
@@ -91,5 +70,28 @@ const styles = StyleSheet.create({
         height:25,
         width:25,
     },
-
+    qtyText:{
+        backgroundColor: colors.color4,
+        height:25,
+        width:25,
+        textAlignVertical:'center',
+        textAlign:'center',
+        borderWidth:1,
+        borderRadius:5,
+        borderColor:colors.color5,
+    },
+    qtycontainer:{
+        alignItems:'center',
+        width:"20%",
+        height:80,
+        justifyContent:"space-between",
+        alignSelf:'center',
+    },
+    imgstyle:{
+        width:200,
+        height:"100%",
+        resizeMode:'contain',
+        top:"-20%",
+        left:"10%",
+    },
 })
