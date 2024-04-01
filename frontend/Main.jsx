@@ -8,6 +8,7 @@ import ProductDetailsScreen from './screens/ProductDetailsScreen'
 import Toast from 'react-native-toast-message'
 import CartScreen from './screens/CartScreen'
 import ConfirmOrderScreen from './screens/ConfirmOrderScreen'
+import PaymentScreen from './screens/PaymentScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -24,6 +25,7 @@ const Main = () => {
                 <Stack.Screen name="ProductDetails" component={ProductDetailsScreen} />
                 <Stack.Screen name="Cart" component={CartScreen} />
                 <Stack.Screen name="ConfirmOrder" component={ConfirmOrderScreen} />
+                <Stack.Screen name="Payment" component={PaymentScreen} />
             </Stack.Group>
         </Stack.Navigator>
         <Toast position='bottom' bottomOffset={50}/>
