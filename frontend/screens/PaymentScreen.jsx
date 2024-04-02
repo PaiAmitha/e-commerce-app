@@ -4,13 +4,27 @@ import { useNavigation } from '@react-navigation/native'
 import { colors, defaultStyle } from '../styles/styles'
 import Header from '../components/Header'
 import Heading from '../components/Heading'
-import { RadioButton } from 'react-native-paper'
+import { Button, RadioButton } from 'react-native-paper'
 
 export default function PaymentScreen({ navigation, route }) {
 
     const [ paymentMethod, setPaymentMethod] = useState("COD");
     //console.log(paymentMethod);
     //const navigation = useNavigation();
+    const isAuthenticated = false;
+
+    const redirectToLogin = () => {
+        navigation.navigate('Login');
+    }
+
+    const codHandler = () => {
+        
+    }
+
+    const onlineHandler = () => {
+        
+    }
+
 
   return (
     <View style={defaultStyle}>
@@ -32,8 +46,18 @@ export default function PaymentScreen({ navigation, route }) {
             </RadioButton.Group>
         </View>
 
-        <TouchableOpacity>
-            
+        <TouchableOpacity
+            onPress={
+                !isAuthenticated ? redirectToLogin : paymentMethod==="COD" ? codHandler : onlineHandler
+            }>
+            <Button style={styles.btn} textColor={colors.color2}
+                icon={
+                    paymentMethod === "COD" ? "check-circle" : "credit-card"
+                } >
+                {
+                    paymentMethod === "COD"? "Place Order" : "Pay"
+                }
+            </Button>
         </TouchableOpacity>
     </View>
   )
@@ -45,7 +69,7 @@ const styles = StyleSheet.create({
         padding:30,
         borderRadius:10,
         marginVertical:20,
-        flex:1,
+        //flex:1,
         justifyContent:"center",
     },
     radioStyle:{
@@ -57,7 +81,13 @@ const styles = StyleSheet.create({
     radioStyleText:{
         fontWeight:"600",
         fontSize:18,
-        textTransform:"uppercase",
+        //textTransform:"uppercase",
         color: colors.color2,
     },
+    btn:{
+        backgroundColor: colors.color3,
+        borderRadius:100,
+        margin:10,
+        padding:5,
+    }
 });
