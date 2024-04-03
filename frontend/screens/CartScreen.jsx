@@ -90,6 +90,7 @@ export default function CartScreen() {
             {
               cartItems.map((i, index) => (
                 <CartItem 
+                  navigation={navigation}
                   key ={i.product} 
                   id={i.product} 
                   name={i.name} 

@@ -9,7 +9,7 @@ export default function Footer({ activeRoute = "Home"}) {
     const navigation = useNavigation();
 
     const loading = false;
-    const isAuthenticated = false;
+    const isAuthenticated = true;
 
     const navigationHandler = (key) => {
 
@@ -64,7 +64,10 @@ export default function Footer({ activeRoute = "Home"}) {
                     {
                         ...avatarOptions
                     }
-                    icon={activeRoute==="Profile"? "account" : "account-outline"}/>
+                    icon={
+                        isAuthenticated === false ? 
+                         "login"  : 
+                        activeRoute==="Profile"? "account" : "account-outline" }/>
         </TouchableOpacity>
       </View>
       <View style={{

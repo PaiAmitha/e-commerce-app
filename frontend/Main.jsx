@@ -12,6 +12,8 @@ import PaymentScreen from './screens/PaymentScreen'
 import LoginScreen from './screens/LoginScreen'
 import ForgotPasswordScreen from './screens/ForgotPasswordScreen'
 import VerifyScreen from './screens/VerifyScreen'
+import SignUpScreen from './screens/SignUpScreen'
+import ProfileScreen from './screens/ProfileScreen'
 
 const Stack = createNativeStackNavigator();
 
@@ -30,9 +32,12 @@ const Main = () => {
                 <Stack.Screen name="ConfirmOrder" component={ConfirmOrderScreen} />
                 <Stack.Screen name="Payment" component={PaymentScreen} />
                 <Stack.Screen name="Login" component={LoginScreen} />
+                <Stack.Screen name="SignUp" component={SignUpScreen} />
+                <Stack.Screen name="Profile" component={ProfileScreen} />
                 {/* Password Resetting Route */}
                 <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
                 <Stack.Screen name="Verify" component={VerifyScreen} />
+                
             </Stack.Group>
         </Stack.Navigator>
         <Toast position='bottom' bottomOffset={50}/>

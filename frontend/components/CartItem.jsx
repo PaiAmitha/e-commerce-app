@@ -2,10 +2,13 @@ import { View, Text, Image, TouchableOpacity, StyleSheet } from 'react-native'
 import React from 'react'
 import { colors } from '../styles/styles'
 import { Avatar } from 'react-native-paper'
+import { useNavigation } from '@react-navigation/native'
 
 export default function CartItem({
-    name, price, stock, qty, imgSrc, index, id, decrementHandler, incrementHandler
+    name, price, stock, qty, imgSrc, index, id, decrementHandler, incrementHandler, navigation
 }) {
+
+    //const navigation = useNavigation();
   return (
     <View
         style={{
@@ -19,11 +22,14 @@ export default function CartItem({
                 borderTopRightRadius:100,
                 borderBottomRightRadius:100,
             }}>
+                <TouchableOpacity onPress={() => navigation.navigate('ProductDetails',{id})}>
                 <Image 
                     source = {{
                         uri:imgSrc,
                     }}
-                    style={styles.imgstyle}/>
+                    style={styles.imgstyle}
+                    />
+                </TouchableOpacity>
             </View>
             <View style={{
                 width:"40%",

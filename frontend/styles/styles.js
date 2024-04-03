@@ -24,3 +24,5 @@ export const inputStyling = StyleSheet.create({
     marginVertical: 10,
     marginHorizontal: 20,
 });
+
+export const defaultImg = "https://th.bing.com/th?id=OIP.rBroxJeka0Jj81uw9g2PwAHaHa&w=250&h=250&c=8&rs=1&qlt=90&o=6&dpr=1.5&pid=3.1&rm=2";

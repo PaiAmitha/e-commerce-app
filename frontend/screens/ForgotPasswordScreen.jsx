@@ -29,7 +29,7 @@ export default function ForgotPasswordScreen({navigation}) {
         <View style={{
             marginBottom:20,
         }}>
-            <Text style={styles.heading}>Reset Password</Text>
+            <Text style={styles.heading}>Forgot Password</Text>
         </View>
 
         <View style={styles.container}>
