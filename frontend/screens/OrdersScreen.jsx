@@ -4,6 +4,7 @@ import { colors, defaultStyle } from '../styles/styles'
 import Header from '../components/Header'
 import Loader from '../components/Loader';
 import { Headline } from 'react-native-paper'
+import OrderItem from '../components/OrderItem';
 
 const orders = [{
     _id:'a',
@@ -57,7 +58,17 @@ export default function OrdersScreen() {
                 }}>
                     <ScrollView showsVerticalScrollIndicator={false}>
                         {
-                            orders.length > 0 ? (null) : <Headline style={{textAlign:'center'}}>No Orders Yet..</Headline>
+                            orders.length > 0 ? orders.map((item,index) =>(
+                                <OrderItem 
+                                    key={item._id} 
+                                    id={item._id}
+                                    i={index}
+                                    price={item.totalAmount}
+                                    status={item.orderStatus}
+                                    paymentMethod={item.paymentMethod}
+                                    orderedOn={item.createdAt}
+                                    address={`${item.shippingInfo.address}, ${item.shippingInfo.city}, ${item.shippingInfo.country}, ${item.shippingInfo.pinCode}`} />
+                            )) : <Headline style={{textAlign:'center'}}>No Orders Yet..</Headline>
                         }
                     </ScrollView>
                 </View>
