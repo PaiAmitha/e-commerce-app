@@ -7,6 +7,7 @@ import ButtonBox from '../../components/ButtonBox';
 import ProductListHeading from '../../components/ProductListHeading';
 import { products } from '../HomeScreen';
 import ProductListItem from '../../components/ProductListItem';
+import Chart from '../../components/Chart';
 
 export default function AdminPanel({navigation}) {
 
@@ -35,7 +36,7 @@ export default function AdminPanel({navigation}) {
                     borderRadius:20,
                     alignItems:'center',
                 }}>
-
+                    <Chart  inStock={12} outOfStock={2}/>
                 </View>
 
                 <View>
