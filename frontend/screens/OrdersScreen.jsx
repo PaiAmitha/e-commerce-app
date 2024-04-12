@@ -31,6 +31,32 @@ const orders = [{
     orderStatus:'Processing',
     paymentMethod:'ONLINE',
     totalAmount:'10000',
+},
+{
+    _id:'c',
+    shippingInfo:{
+        address:'73 easter',
+        city:'Bangalore',
+        country:'India',
+        pinCode: 560066,
+    },
+    createdAt:'15-12-2023T444',
+    orderStatus:'Processing',
+    paymentMethod:'COD',
+    totalAmount:'20000',
+},
+{
+    _id:'d',
+    shippingInfo:{
+        address:'73 easter',
+        city:'Bangalore',
+        country:'India',
+        pinCode: 560066,
+    },
+    createdAt:'15-12-2023T444',
+    orderStatus:'Processing',
+    paymentMethod:'ONLINE',
+    totalAmount:'10000',
 }
 ]
 
@@ -66,7 +92,7 @@ export default function OrdersScreen() {
                                     price={item.totalAmount}
                                     status={item.orderStatus}
                                     paymentMethod={item.paymentMethod}
-                                    orderedOn={item.createdAt}
+                                    orderedOn={item.createdAt.split("T")[0]}
                                     address={`${item.shippingInfo.address}, ${item.shippingInfo.city}, ${item.shippingInfo.country}, ${item.shippingInfo.pinCode}`} />
                             )) : <Headline style={{textAlign:'center'}}>No Orders Yet..</Headline>
                         }

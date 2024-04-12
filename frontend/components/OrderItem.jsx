@@ -1,6 +1,7 @@
 import { View, Text, StyleSheet } from 'react-native'
 import React from 'react'
 import { colors } from '../styles/styles'
+import { Button } from 'react-native-paper'
 
 export default function OrderItem({
     id, 
@@ -28,6 +29,24 @@ export default function OrderItem({
       <TextBox title={"Price"} value={price} i={i}/>
       <TextBox title={"Status"} value={status} i={i}/>
       <TextBox title={"Payment Method"} value={paymentMethod} i={i}/>
+
+      {
+        admin && (
+          <Button 
+            icon={'update'}
+            mode='outlined'
+            textColor={i % 2 ===0? colors.color3 : colors.color2}
+            style={{
+              width:120,
+              alignSelf:'center',
+              marginTop:10,
+              
+            }}
+            onPress={() => updateHandler(id)}
+            loading={loading}
+            disabled={loading} >Update</Button>
+        )
+      }
     </View>
   )
 }
@@ -40,8 +59,9 @@ const TextBox = ({title,value, i}) => (
     <Text style={{
       fontWeight:"900",
     }}>
-      {title==='Price'? '₹' : ""} - 
+      {title} - 
     </Text>
+    {title === 'Price' ? "₹" : ""}
     {value}
   </Text>
 

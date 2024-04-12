@@ -17,6 +17,7 @@ import ProfileScreen from './screens/ProfileScreen'
 import UpdateProfileScreen from './screens/UpdateProfileScreen'
 import ChangePasswordScreen from './screens/ChangePasswordScreen'
 import OrdersScreen from './screens/OrdersScreen'
+import AdminPanel from './screens/Admin/AdminPanel'
 
 const Stack = createNativeStackNavigator();
 
@@ -40,10 +41,13 @@ const Main = () => {
                 <Stack.Screen name="UpdateProfile" component={UpdateProfileScreen} />
                 <Stack.Screen name="ChangePassword" component={ChangePasswordScreen} />
                 <Stack.Screen name="Orders" component={OrdersScreen} />
-                {/* Password Resetting Route */}
+                
                 {/* Password Resetting Route */}
                 <Stack.Screen name="ForgotPassword" component={ForgotPasswordScreen} />
                 <Stack.Screen name="Verify" component={VerifyScreen} />
+
+                {/* Admin Routes */}
+                <Stack.Screen name="AdminPanel" component={AdminPanel} />
                 
             </Stack.Group>
         </Stack.Navigator>
