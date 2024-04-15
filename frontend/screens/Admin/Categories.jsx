@@ -22,7 +22,7 @@ const categories = [{
 },
 ];
 
-const inputOptions={
+export const inputOptions={
     style:inputStyling,
     mode:"outline",
     activeOutlineColor:colors.color1,

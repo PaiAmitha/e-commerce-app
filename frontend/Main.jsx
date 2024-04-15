@@ -20,6 +20,7 @@ import OrdersScreen from './screens/OrdersScreen'
 import AdminPanel from './screens/Admin/AdminPanel'
 import Categories from './screens/Admin/Categories'
 import AdminOrders from './screens/Admin/AdminOrders'
+import UpdateProduct from './screens/Admin/UpdateProduct'
 
 const Stack = createNativeStackNavigator();
 
@@ -52,6 +53,7 @@ const Main = () => {
                 <Stack.Screen name="AdminPanel" component={AdminPanel} />
                 <Stack.Screen name="Categories" component={Categories} />
                 <Stack.Screen name="AdminOrders" component={AdminOrders} />
+                <Stack.Screen name="UpdateProduct" component={UpdateProduct} />
                 
             </Stack.Group>
         </Stack.Navigator>
