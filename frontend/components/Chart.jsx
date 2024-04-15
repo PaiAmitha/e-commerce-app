@@ -35,7 +35,7 @@ export default function Chart({inStock=0, outOfStock=0}) {
         backgroundColor={colors.color3}
         //paddingLeft={"15"}
         //marginRight={"10"}
-        center={[5, 10]}
+        center={[5, 2]}
         absolute/>
     </View>
   )

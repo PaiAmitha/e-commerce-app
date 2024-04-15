@@ -13,7 +13,22 @@ export default function AdminPanel({navigation}) {
 
     const loading=false;
 
-    const navigationHandler = () => {};
+    const navigationHandler = (text) => {
+        switch(text) {
+            case "Category":
+                navigation.navigate("Categories");
+                break;
+            case "All Orders":
+                navigation.navigate("AdminOrders");
+                break;
+            case "Product":
+                navigation.navigate("NewProduct");
+                break;
+            default :
+                navigation.navigate("Categories");
+                break;
+        }
+    };
 
     const deleteProductHandler = (id) => {
         console.log('Deleting product with ID : ${id}');
@@ -33,7 +48,7 @@ export default function AdminPanel({navigation}) {
                 <>
                 <View style={{
                     backgroundColor:colors.color3,
-                    borderRadius:20,
+                    borderRadius:10,
                     alignItems:'center',
                 }}>
                     <Chart  inStock={12} outOfStock={2}/>
