@@ -43,7 +43,7 @@ export default function SearchModal({searchQuery, setActiveSearch, setSearchQuer
             style={{
                 marginTop:20,
             }}/>
-        <ScrollView>
+        <ScrollView showsVerticalScrollIndicator={false}>
             <View style={{
                 paddingVertical:40,
                 paddingHorizontal:10,

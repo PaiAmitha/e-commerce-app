@@ -1,32 +1,22 @@
-import { View, Text , StyleSheet, ScrollView} from 'react-native'
+import { View, Text , StyleSheet, ScrollView, TouchableOpacity} from 'react-native'
 import React, { useState } from 'react'
 import { defaultStyle, colors, inputStyling } from '../../styles/styles'
 import Header from '../../components/Header'
 import Loader from '../../components/Loader';
-import { Button, TextInput } from 'react-native-paper';
+import { Avatar, Button, TextInput } from 'react-native-paper';
 import { inputOptions } from './Categories';
 import SelectComponent from '../../components/SelectComponent';
 
-export default function UpdateProduct({navigation, route}) {
+export default function NewProduct({navigation, route}) {
 
     const loading = false;
-    const loadingOther = false;
+    //const loadingOther = false;
 
     console.log(route.params);
 
-    const images = [
-        {
-            url : "https://th.bing.com/th/id/OIP.CXUrNZzKJrN1C4yYe95keQHaHa?w=171&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
-            _id: "aa",
-    },
-    {
-        url : "https://th.bing.com/th/id/OIP.CXUrNZzKJrN1C4yYe95keQHaHa?w=171&h=180&c=7&r=0&o=5&dpr=1.5&pid=1.7",
-        _id: "bb",
-},
-];
+    //const [id] = useState(route.params.id);
 
-    const [id] = useState(route.params.id);
-
+    const [image, setImage] = useState("");
     const [name, setName] = useState("");
     const [description, setDescription] = useState("");
     const [price, setPrice] = useState("");
@@ -54,7 +44,7 @@ export default function UpdateProduct({navigation, route}) {
     <View style={{
         marginBottom:20,
     }}>
-        <Text style={styles.heading}>Update Product</Text>
+        <Text style={styles.heading}>New Product</Text>
     </View>
 
     {
@@ -69,12 +59,40 @@ export default function UpdateProduct({navigation, route}) {
                     justifyContent:'center',
                     height:650,
                 }}>
-                    <Button 
-                    textColor={colors.color1}
-                    onPress={() => navigation.navigate("ProductImages",{
-                        id,
-                        images:images,
-                        })}>Manage Images</Button>
+                    <View
+                        style={{
+                            width:80,
+                            height:80,
+                            alignSelf:'center',
+                            marginBottom:20,
+                        }}>
+                            <Avatar.Image
+                                size={80}
+                                style={{
+                                    backgroundColor: colors.color1,
+                                }}
+                                source={{
+                                    uri: image ? image : null ,
+                                }}/>
+                        
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("Camera", { newProduct : true })}>
+                            
+                            <Avatar.Icon
+                                icon={'camera'}
+                                size={25}
+                                color={colors.color3}
+                                style={{
+                                    backgroundColor: colors.color2,
+                                    position:'absolute',
+                                    bottom:0,
+                                    right:0,
+                                }} />
+
+                        </TouchableOpacity>
+
+                    </View>
+                   
 
                         <TextInput
                         {...inputOptions}
@@ -115,9 +133,9 @@ export default function UpdateProduct({navigation, route}) {
                         padding:6,
                     }}
                     onPress={submitHandler}
-                    loading={loadingOther}
-                    disabled={loadingOther}
-                    textColor={colors.color2}>Update</Button>
+                    loading={loading}
+                    disabled={loading}
+                    textColor={colors.color2}>Create</Button>
                 </View>
             </ScrollView>
         )
