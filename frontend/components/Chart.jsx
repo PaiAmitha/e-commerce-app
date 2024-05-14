@@ -11,13 +11,13 @@ export default function Chart({inStock=0, outOfStock=0}) {
             name:"Out of Stock",
             population :outOfStock,
             color: colors.color_light,
-            legendFontColor:colors.color2,
+            legendFontColor:colors.color1,
         },
         {
             name:"In Stock",
             population :inStock,
             color: colors.color_light2,
-            legendFontColor:colors.color2,
+            legendFontColor:colors.color1,
         }
     ];
 
@@ -32,7 +32,7 @@ export default function Chart({inStock=0, outOfStock=0}) {
         height={150}
         chartConfig={chartConfig}
         accessor={"population"}
-        backgroundColor={colors.color3}
+        backgroundColor={colors.color2}
         //paddingLeft={"15"}
         //marginRight={"10"}
         center={[5, 2]}

@@ -47,7 +47,7 @@ export default function AdminPanel({navigation}) {
             (
                 <>
                 <View style={{
-                    backgroundColor:colors.color3,
+                    //backgroundColor:colors.color3,
                     borderRadius:10,
                     alignItems:'center',
                 }}>

@@ -18,11 +18,12 @@ export default function OrderItem({
   return (
     <View style={{
         ...styles.container,
-        backgroundColor: i % 2 === 0 ? colors.color2 : colors.color3,
+        //backgroundColor: i % 2 === 0 ? colors.color2 : colors.color3,
+        backgroundColor : colors.color2,
     }}>
       <Text style={{
         ...styles.txt,
-        backgroundColor: i % 2 === 0 ? colors.color3 : colors.color1,
+        backgroundColor: i % 2 === 0 ? colors.color1 : colors.color3,
         }}>ID - #{id}</Text>
       <TextBox title={"Address"} value={address} i={i}/>
       <TextBox title={"Ordered On"} value={orderedOn} i={i}/>
@@ -35,7 +36,7 @@ export default function OrderItem({
           <Button 
             icon={'update'}
             mode='outlined'
-            textColor={i % 2 ===0? colors.color3 : colors.color2}
+            textColor={i % 2 ===0? colors.color3 : colors.color1}
             style={{
               width:120,
               alignSelf:'center',
@@ -54,7 +55,7 @@ export default function OrderItem({
 const TextBox = ({title,value, i}) => (
   <Text style={{
     marginVertical:6,
-    color: i % 2 === 0? colors.color3 : colors.color2,
+    color: i % 2 === 0? colors.color1 : colors.color3,
   }}>
     <Text style={{
       fontWeight:"900",

@@ -25,7 +25,7 @@ export default function ProductListItem({
         onPress={() => navigate.navigate("ProductDetails", {id})}>
             <View style={{
                 ...styles.container,
-                backgroundColor: i % 2 === 0? colors.color1 : colors.color3 ,
+                backgroundColor: i % 2 === 0? colors.color1 : colors.color1,
             }}>
                 <Image source={{
                     uri:imgSrc,
